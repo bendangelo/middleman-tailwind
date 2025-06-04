@@ -20,16 +20,53 @@ Or install it yourself as:
 
 $ gem install middleman-tailwind
 
+### Optional: Install Watchman for Faster File Watching
+
+If you see the following warning:
+
+```sh
+sh: 1: watchman: not found
+```
+
+Tailwind will still work correctly, but it will fall back to a slower file-watching method (polling). To enable faster and more efficient rebuilds, you can optionally install [Watchman](https://facebook.github.io/watchman/), a file-watching service developed by Meta.
+
+#### Install Watchman
+
+Choose the command for your system:
+
+**macOS (Homebrew):**
+
+```bash
+brew install watchman
+```
+
+**Ubuntu / Debian:**
+
+```bash
+sudo apt update
+sudo apt install watchman
+```
+
+**Arch Linux:**
+
+```bash
+pacman -S watchman
+```
+
+> Note: This is entirely optional — Tailwind will still function without Watchman, just with slower file change detection.
+
 ## Usage
 
 If you don't have any special configuration needs, things should just work out of the box if you activate the extension in your `config.rb`:
 
 ```ruby
 activate :tailwind,
-  css_path: "custom/input.css",              # Optional  
-  destination_path: "source/css/main.css",   # Optional
-  latency: 0.5                               # Optional   
+  css_path: "custom/input.css",        # Optional  
+  destination_path: ".tmp/main.css",   # Optional
+  latency: 0.5                         # Optional
 ```
+
+By default the output file will be at `./tailwind.css`, this file do not need to be committed and can be added to `.gitignore`.
 
 When you start your middleman server, a thread will spin up with the tailwind CLI in `watch` mode, watching for changes in all the `.erb` files under your `source` directory. The default path for your generated tailwind CSS file is `source/stylesheets/tailwind.css`, but you can change that with a configuration option:
 

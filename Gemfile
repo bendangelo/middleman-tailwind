@@ -8,8 +8,3 @@ gem "rake", "~> 13.0"
 gem "rubocop", "~> 1.36"
 
 gem "tailwindcss-ruby", "~> 4.1.8"
-gem "watchman"
-gem "iconv"
-gem "nkf"
-gem "mutex_m"
-gem "irb"

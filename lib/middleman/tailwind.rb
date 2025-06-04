@@ -7,7 +7,7 @@ module Middleman
 
     class Main < Middleman::Extension
       option :css_path, nil, "Tailwind source css file path"
-      option :destination_path, "source/stylesheets/tailwind.css", "Destination path for tailwind css"
+      option :destination_path, "tailwind.css", "Destination path for tailwind css"
       option :latency, 0.25, "Latency between refreshes when watching"
       option :disable_background_execution, false, "Don't run the command in a separate background thread"
       option :ignore_exit_code, false, "Ignore exit code for restart or stop of a command"

@@ -32,10 +32,6 @@ Gem::Specification.new do |spec|
   # Uncomment to register a new dependency of your gem
   spec.add_dependency("middleman-core", [">= 4.0.0"])
   spec.add_dependency("tailwindcss-ruby", [">= 4.0.0"])
-  spec.add_dependency("watchman")
-  spec.add_dependency("iconv")
-  spec.add_dependency("nkf")
-  spec.add_dependency("mutex_m")
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
