@@ -6,7 +6,6 @@ module Middleman
     class Error < StandardError; end
 
     class Main < Middleman::Extension
-      option :config_path, nil, "Custom tailwind.config.js file path"
       option :css_path, nil, "Tailwind source css file path"
       option :destination_path, "source/stylesheets/tailwind.css", "Destination path for tailwind css"
       option :latency, 0.25, "Latency between refreshes when watching"
@@ -17,7 +16,6 @@ module Middleman
         super
         @gem_dir = File.expand_path "../..", __dir__
         @project_dir = Dir.pwd
-        @config_path = options.config_path
         @css_path = options.css_path
         @destination_path = options.destination_path
         @current_thread = nil
@@ -49,15 +47,9 @@ module Middleman
         File.join(@project_dir, @destination_path)
       end
 
-      def config_file
-        return File.join(@project_dir, @config_path) if @config_path
-        File.join(@gem_dir, "tailwind/tailwind.config.js")
-      end
-
       def build_command
         cmd_parts = []
         cmd_parts << "./bin/tailwindcss"
-        cmd_parts << "-c #{config_file}" if File.exist?(config_file)
         cmd_parts << "-i #{application_css}"
         cmd_parts << "-o #{destination}"
         cmd_parts << "--minify" if app.build?

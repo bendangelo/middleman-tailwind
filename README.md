@@ -25,7 +25,10 @@ $ gem install middleman-tailwind
 If you don't have any special configuration needs, things should just work out of the box if you activate the extension in your `config.rb`:
 
 ```ruby
-activate :tailwind
+activate :tailwind,
+  css_path: "custom/input.css",              # Optional  
+  destination_path: "source/css/main.css",   # Optional
+  latency: 0.5                               # Optional   
 ```
 
 When you start your middleman server, a thread will spin up with the tailwind CLI in `watch` mode, watching for changes in all the `.erb` files under your `source` directory. The default path for your generated tailwind CSS file is `source/stylesheets/tailwind.css`, but you can change that with a configuration option:
@@ -36,20 +39,19 @@ activate :tailwind do |config|
 end
 ```
 
-You might want to customize your tailwind.config.js. Tell middleman-tailwind where to find it with the following config option and it'll pick that up.
-
-```ruby
-activate :tailwind do |config|
-  config.config_path = "tailwind.config.js"
-end
-```
-
 In the same vein, you can customize the application css that tailwind uses, like so:
 
 ```ruby
 activate :tailwind do |config|
   config.css_path = "tailwind/application.tailwind.css"
 end
+```
+
+Note: The default tailwind.css file looks like this. This file is where you can change the path to your own custom config.js file.
+
+```
+@config "./tailwind.config.js";
+@import "tailwindcss";
 ```
 
 That's all. GLHF!

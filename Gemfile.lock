@@ -2,8 +2,12 @@ PATH
   remote: .
   specs:
     middleman-tailwind (2.0.0)
+      iconv
       middleman-core (>= 4.0.0)
+      mutex_m
+      nkf
       tailwindcss-ruby (>= 4.0.0)
+      watchman
 
 GEM
   remote: https://rubygems.org/
