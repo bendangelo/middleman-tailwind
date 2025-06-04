@@ -1,6 +1,8 @@
 # Tailwind for Middleman
 
-Probably the easiest way to get [Tailwind CSS](https://tailwindcss.com/) into your Middleman app! It comes bundled with the standalone CLI executables and is very point-and-shoot, no npm or external pipelines needed.
+Probably the easiest way to get [Tailwind CSS](https://tailwindcss.com/) into your Middleman app! It uses the `tailwindcss-ruby` gem, no npm or external pipelines needed.
+
+Note: Only supports Tailwindcss v4.
 
 ## Installation
 
@@ -60,7 +62,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/middleman-tailwind.
+Bug reports and pull requests are welcome on GitHub at https://github.com/bendangelo/middleman-tailwind.
 
 ## License
 
