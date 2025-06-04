@@ -48,8 +48,10 @@ module Middleman
       end
 
       def build_command
+        tailwind_bin = File.join(@gem_dir, "bin", "tailwindcss")
+
         cmd_parts = []
-        cmd_parts << "./bin/tailwindcss"
+        cmd_parts << tailwind_bin
         cmd_parts << "-i #{application_css}"
         cmd_parts << "-o #{destination}"
         cmd_parts << "--minify" if app.build?
