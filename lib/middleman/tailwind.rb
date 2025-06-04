@@ -1,5 +1,4 @@
 require "middleman-core"
-require "tailwindcss-ruby"
 require_relative "tailwind/version"
 
 module Middleman
